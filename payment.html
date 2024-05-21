@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h2>Payment Page</h2>
+            </div>
+            <div class="card-body">
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label>Total Amount</label>
+                        <p id="totalAmount"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" class="form-control" id="cardNumber" placeholder="Enter your card number" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" class="form-control" id="cvv" placeholder="CVV" required />
+                    </div>
+                    <button type="submit" class="btn btn-success">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve the total cost from the query parameters
+            var urlParams = new URLSearchParams(window.location.search);
+            var totalCost = urlParams.get('totalCost');
+            document.getElementById('totalAmount').textContent = totalCost;
+
+            // Add event listener for the payment form
+            document.getElementById('paymentForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Implement the payment processing logic here
+                alert('Payment successful!');
+                // Optionally, redirect to a confirmation page or home page after successful payment
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>

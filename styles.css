@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://c1.wallpaperflare.com/preview/742/704/32/admission-coupon-admit-buy.jpg'); /* Replace 'background-image.jpg' with your image file path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 800px;
+    margin: 100px auto; /* Adjust margin to vertically center the container */
+    background-color: rgba(255, 255, 255, 0.7); /* Change the background color and transparency here */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container select,
+.container input[type="date"],
+.container input[type="number"] {
+    width: calc(100% - 20px); /* Adjust width to match container padding */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Add margin between form elements */
+}
+
+.container .btn {
+    width: 100%; /* Make buttons fill container width */
+}
+
+
+
+.header {
+    background-color: #00796b;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.checkbox-group {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #00796b;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btn:hover {
+    background-color: #004d40;
+}
+
+.search-results {
+    margin-top: 30px;
+    background-color: #e0f2f1;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.search-results h3 {
+    margin-top: 0;
+}
+
+.search-results p {
+    margin: 10px 0;
+}
+
+.search-results hr {
+    border: 0;
+    border-top: 1px solid #bdbdbd;
+    margin: 20px 0;
+}

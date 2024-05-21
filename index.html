@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Booking</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body ng-app="ticketBookingApp" ng-controller="TicketController as ctrl">
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2>Train Ticket Booking</h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="from">From</label>
+                        <select id="from" class="form-control" ng-model="ctrl.from">
+                            <option value="">Select City</option>
+                            <option value="New Delhi">New Delhi</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Lucknow">Lucknow</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Patna">Patna</option>
+                            <option value="Bhubaneswar">Bhubaneswar</option>
+                            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" class="form-control" ng-model="ctrl.date" />
+                    </div>
+                    <div class="form-group">
+                        <label for="to">To</label>
+                        <select id="to" class="form-control" ng-model="ctrl.to">
+                            <option value="">Select City</option>
+                            <option value="New Delhi">New Delhi</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Kolkata">Kolkata</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Lucknow">Lucknow</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Patna">Patna</option>
+                            <option value="Bhubaneswar">Bhubaneswar</option>
+                            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="class">Class</label>
+                        <select id="class" class="form-control" ng-model="ctrl.class">
+                            <option value="">All Classes</option>
+                            <option value="First Class">First Class</option>
+                            <option value="Second Class">Second Class</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" class="form-control" ng-model="ctrl.category">
+                            <option value="GENERAL">GENERAL</option>
+                            <option value="LADIES">LADIES</option>
+                            <option value="SENIOR CITIZEN">SENIOR CITIZEN</option>
+                        </select>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" ng-model="ctrl.disability" id="disability">
+                        <label class="form-check-label" for="disability">Person With Disability Concession</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" ng-model="ctrl.flexibleDate" id="flexibleDate">
+                        <label class="form-check-label" for="flexibleDate">Flexible With Date</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" ng-model="ctrl.availableBerth" id="availableBerth">
+                        <label class="form-check-label" for="availableBerth">Train with Available Berth</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" ng-model="ctrl.passConcession" id="passConcession">
+                        <label class="form-check-label" for="passConcession">Railway Pass Concession</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="seats">Number of Seats</label>
+                        <input type="number" id="seats" class="form-control" ng-model="ctrl.seats" min="1" />
+                    </div>
+                    <div class="form-group">
+                        <label>Total Cost</label>
+                        <p>{{ ctrl.totalCost }}</p>
+                    </div>
+                    <button type="button" class="btn btn-primary" ng-click="ctrl.search()">Search</button>
+                    <button type="button" class="btn btn-secondary" ng-click="ctrl.redirectToIRCTC()">Try booking in IRCTC</button>
+                </form>
+                <div class="search-results mt-4" ng-if="ctrl.searchResults.length > 0">
+                    <h3>Search Results</h3>
+                    <div ng-repeat="result in ctrl.searchResults" class="border p-2 mb-2">
+                        <p>From: {{ result.from }} (Departure: {{ result.departureTime }})</p>
+                        <p>To: {{ result.to }} (Arrival: {{ result.arrivalTime }})</p>
+                    </div>
+                </div>
+                <div ng-if="ctrl.totalCost > 0" class="mt-4">
+                    <button type="button" class="btn btn-success" ng-click="ctrl.redirectToPayment()">Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
